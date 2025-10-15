@@ -5,7 +5,7 @@
 read -p "Enter your name:" name
 mkdir -p submission_reminder_$name
 
-root_dir="submission_reminder_'$name'"
+root_dir="submission_reminder_$name"
 #creating subdirectories
 mkdir -p "$root_dir/app"
 mkdir -p "$root_dir/modules"
@@ -14,10 +14,9 @@ mkdir -p "$root_dir/config"
 
 #creating the files in their respective subdirectories with their contents
 #creating config.env file in config directory
-echo "# This is the config file
+echo '# This is the config file
 ASSIGNMENT="Shell Navigation"
-DAYS_REMAINING=2
-" > $root_dir/config/config.env
+DAYS_REMAINING=2' > $root_dir/config/config.env
 #creating submissions.txt file in assets directory
 echo "student, assignment, submission status
 Chinemerem, Shell Navigation, not submitted
@@ -30,7 +29,7 @@ Morris, Shell Basics, not submitted
 Harris, Shell Basics, not submitted
 Lydia, Git, submitted" > $root_dir/assets/submissions.txt
 #creating functions.sh file in modules directory
-echo "#!/bin/bash
+echo '#!/bin/bash
 
 # Function to read submissions file and output students who have not submitted
 function check_submissions {
@@ -49,10 +48,9 @@ function check_submissions {
             echo "Reminder: $student has not submitted the $ASSIGNMENT assignment!"
         fi
     done < <(tail -n +2 "$submissions_file") # Skip the header
-}
-" > $root_dir/modules/functions.sh
+}' > $root_dir/modules/functions.sh
 #creating reminder.sh file in app directory
-echo "#!/bin/bash
+echo '#!/bin/bash
 
 # Source environment variables and helper functions
 source ./config/config.env
@@ -66,6 +64,6 @@ echo "Assignment: $ASSIGNMENT"
 echo "Days remaining to submit: $DAYS_REMAINING days"
 echo "--------------------------------------------"
 
-check_submissions $submissions_file
-" > $root_dir/app/reminder.sh
+check_submissions $submissions_file' > $root_dir/app/reminder.sh
+
 
