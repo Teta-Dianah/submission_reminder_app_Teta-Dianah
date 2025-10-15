@@ -25,7 +25,7 @@ Divine, Shell Navigation, not submitted
 Anissa, Shell Basics, submitted
 Glory, Git, submitted
 Joy, Shell Navigation, submitted
-Morris, Shell Basics, not submitted
+Morris, Shell Navigation, not submitted
 Harris, Shell Basics, not submitted
 Lydia, Git, submitted" > $root_dir/assets/submissions.txt
 #creating functions.sh file in modules directory
@@ -66,4 +66,17 @@ echo "--------------------------------------------"
 
 check_submissions $submissions_file' > $root_dir/app/reminder.sh
 
-
+#creating startup.sh file in the root directory
+#if condition is checking if reminder.sh exists before executing it
+echo '
+if [ -f "./app/reminder.sh" ]; then
+    ./app/reminder.sh
+else
+    echo "Error: reminder.sh not found! in the app directory."
+    exit 1
+fi
+'> $root_dir/startup.sh
+#making the scripts executable
+chmod +x $root_dir/startup.sh
+chmod +x $root_dir/app/reminder.sh
+chmod +x $root_dir/modules/functions.sh
