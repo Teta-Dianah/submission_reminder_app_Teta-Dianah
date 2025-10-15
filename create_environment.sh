@@ -64,4 +64,3 @@ echo "--------------------------------------------"
 check_submissions $submissions_file
 " > $parent_dir/app/reminder.sh
 
-
