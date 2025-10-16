@@ -72,5 +72,5 @@ if [[ "$run_now" =~ ^[Yy]$ ]]; then
     cd "$Dir" 
     ./startup.sh
 else
-    echo "You can run the application by executing $Dir/app/reminder.sh"
+    echo "You can run the application by executing $Dir/app/reminder.sh and execute ./startup.sh"
 fi

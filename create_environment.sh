@@ -11,7 +11,7 @@ mkdir -p "$root_dir/app"
 mkdir -p "$root_dir/modules"
 mkdir -p "$root_dir/assets"
 mkdir -p "$root_dir/config"
-
+6
 #creating the files in their respective subdirectories with their contents
 #creating config.env file in config directory
 echo '# This is the config file
